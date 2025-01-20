@@ -1,0 +1,12 @@
+pandas
+numpy
+langchain
+langchain-core
+langchain-community
+langchain-huggingface
+langchain-chroma
+pypdf
+huggingface-hub
+transformers
+sentence-transformers
+accelerate
