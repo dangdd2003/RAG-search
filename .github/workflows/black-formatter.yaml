@@ -31,8 +31,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install black[jupyter]
-      - name: Check files need to be reformatted
-        run: black --check --verbose .
+      - name: Format files
+        run: black --verbose .
       - name: Push new changes
         run: |
           git commit -m "Fix: Reformat code using Black"

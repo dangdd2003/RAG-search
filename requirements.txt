@@ -5,6 +5,9 @@ langchain-core
 langchain-community
 langchain-huggingface
 langchain-chroma
+torch
+torchaudio
+torchvision
 pypdf
 huggingface-hub
 transformers
