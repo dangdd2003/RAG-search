@@ -5,15 +5,12 @@ on: [push, pull_request]
 jobs:
   formatting:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v5.4.0
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: '3.11'
       - name: Get pip cache dir
         id: pip-cache
         shell: bash
@@ -35,5 +32,7 @@ jobs:
         run: black --verbose .
       - name: Push new changes
         run: |
+          git config user.name "Github Actions"
+          git config user.email "nonuser@email"
           git commit -m "Fix: Reformat code using Black"
           git push https://{{ secrets.GITHUB_TOKEN }}@github.com/{{ github.repository }}.git
