@@ -1,0 +1,27 @@
+models:
+  llm:
+    name: "google/gemma-2-2b-it"
+    # name: "Qwen/Qwen2.5-7B"
+    torch-dtype: "auto"
+  embeddings:
+    name: "sentence-transformers/all-MiniLM-L6-v2"
+    # name: "dangvantuan/vietnamese-document-embedding"
+  sbert:
+    name: "colbert-ir/colbertv2.0"
+    # name: "vinai/phobert-base-v2"
+
+data:
+  - documents-dir: "data/papers"
+    chunk-size: 256
+    chunk-separators:
+    - "\n"
+    - "\n\n"
+    - ".\n"
+    - ";\n"
+    - "!\n"
+    - "?\n"
+    - "...\n"
+  
+
+chroma:
+  database-dir: "chroma"
